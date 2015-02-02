@@ -519,7 +519,7 @@ static unsigned int uksm_max_cpu_percentage;
 
 static int uksm_cpu_governor;
 
-static char *uksm_cpu_governor_str[4] = { "balanced", "performance", "conservative", "battery" };
+static char *uksm_cpu_governor_str[4] = { "conservative", "performance", "balanced", "battery" };
 
 struct uksm_cpu_preset_s {
 	int cpu_ratio[SCAN_LADDER_SIZE];
@@ -528,9 +528,9 @@ struct uksm_cpu_preset_s {
 };
 
 struct uksm_cpu_preset_s uksm_cpu_preset[4] = {
-	{ {10, 20, -5000, -10000}, {1500, 1000, 1000, 250}, 10},
+	{ {10, 20, 40, 75}, {2000, 1000, 1000, 1000}, 5},
 	{ {10, 20, 40, 75}, {2000, 1000, 1000, 1000}, 20},
-	{ {10, 20, 40, 75}, {2000, 1000, 1000, 1000}, 5},	
+	{ {10, 20, -5000, -10000}, {1500, 1000, 1000, 250}, 10},	
 	{ {10, 20, -5000, -10000}, {1500, 1000, 1000, 250}, 1}
 };
 
