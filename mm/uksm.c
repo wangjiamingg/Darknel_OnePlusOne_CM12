@@ -3803,7 +3803,6 @@ static inline unsigned long get_current_neg_ratio(void)
 {
 	if (!rshash_pos || rshash_neg > rshash_pos)
 		return 100;
-
 	return div64_u64(100 * rshash_neg , rshash_pos);
 }
 */
@@ -5743,4 +5742,3 @@ module_init(uksm_init)
 #else
 late_initcall(uksm_init);
 #endif
-
