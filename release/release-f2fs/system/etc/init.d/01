@@ -4,6 +4,9 @@ READ_AHEAD_KB=3072
 #Cpu Boost
 echo "0" > /sys/module/cpu_boost/parameters/cpu_boost
 
+#Gpu clock
+echo "578000000" > /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk;
+
 # Tweak kernel scheduler
 echo "384" > /proc/sys/kernel/random/write_wakeup_threshold
 echo "384" > /proc/sys/kernel/random/read_wakeup_threshold
