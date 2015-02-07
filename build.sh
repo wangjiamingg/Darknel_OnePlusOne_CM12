@@ -43,6 +43,10 @@ if [ -f out/*.zip ]
 then
 rm -f out/*.zip
 fi
+if [ -f out/zImage ]
+then
+rm -f out/zImage
+fi
 if [ -f out/*.gz ]
 then
 rm -f out/*.gz
@@ -143,6 +147,10 @@ fi
 if [ -f out/*.img ]
 then
 rm -f out/*.img
+fi
+if [ -f out/zImage ]
+then
+rm -f out/zImage
 fi
 if [ -f temp_boot/*.img ]
 then
