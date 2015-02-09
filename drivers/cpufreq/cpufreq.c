@@ -15,8 +15,6 @@
  *
  */
 
-#define pr_fmt(fmt) KBUILD_MODNAME ": " fm
-
 #include <asm/cputime.h>
 #include <linux/kernel.h>
 #include <linux/kernel_stat.h>
