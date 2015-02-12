@@ -3,4 +3,11 @@ config INTELLI_PLUG
         default n
         help
           Generic Intelli-plug cpu hotplug driver for ARM SOCs
+config ASMP
+	bool "Multi-core automatic hotplug support"
+	depends on SMP
+	default n
+	help
+	  Automatically hotplugs the multiple cpu cores on and off
+	  based on cpu load and suspend state
 
