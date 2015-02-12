@@ -170,7 +170,7 @@ echo "KBUILD_BUILD_USER="$KBUILD_BUILD_USER
 echo "KBUILD_BUILD_HOST="$KBUILD_BUILD_HOST
 make darknel_bacon_defconfig
 export NKERNEL="-DarkNel"
-export BUILDNO="_OPO_CM12_rev.3.v.0.0.3"
+export BUILDNO="_OPO_CM12_rev.3.v.0.0.4"
 export BUILDNOF2FS="_OPO_CM12_F2FS_rev.3.v.0.0.4"
 export ZIPKERNEL="DarkNel_Kernel"
 export LOCALVERSION=$NKERNEL$BUILDNO
