@@ -4,8 +4,17 @@ READ_AHEAD_KB=3072
 #Cpu Boost
 echo "0" > /sys/module/cpu_boost/parameters/cpu_boost
 
+#Scheduler
+echo "deadline" > /sys/block/mmcblk0/queue/scheduler
+
+#TCPCongestion
+echo "westwood" > /proc/sys/net/ipv4/tcp_congestion_control
+
 #Gpu clock
-echo "578000000" > /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk;
+echo "578000000" > /sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq
+
+#Gpu governor
+echo "simple_ondemand" > /sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/governor
 
 # Tweak kernel scheduler
 echo "384" > /proc/sys/kernel/random/write_wakeup_threshold
