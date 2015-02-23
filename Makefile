@@ -244,8 +244,8 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O4 -fomit-frame-pointer -fgcse-las
-HOSTCXXFLAGS = -O4 -fgcse-las
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -Os -fomit-frame-pointer -fgcse-las
+HOSTCXXFLAGS = -Os -fgcse-las
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
@@ -329,7 +329,7 @@ include $(srctree)/scripts/Kbuild.include
 
 AS		= $(CROSS_COMPILE)as
 LD		= $(CROSS_COMPILE)ld
-REAL_CC	= $(CROSS_COMPILE)gcc
+CC	= $(CROSS_COMPILE)gcc
 CPP		= $(CC) -E
 AR		= $(CROSS_COMPILE)ar
 NM		= $(CROSS_COMPILE)nm
@@ -343,10 +343,6 @@ DEPMOD		= /sbin/depmod
 KALLSYMS	= scripts/kallsyms
 PERL		= perl
 CHECK		= sparse
-
-# Use the wrapper for the compiler.  This wrapper scans for new
-# warnings and causes the build to stop upon encountering them.
-CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
@@ -1015,7 +1011,7 @@ prepare1: prepare2 include/linux/version.h include/generated/utsrelease.h \
 archprepare: archheaders archscripts prepare1 scripts_basic
 
 prepare0: archprepare FORCE
-	$(Q)$(MAKE) $(build)=.
+	$(Q)$(MAKE) $(build)=. missing-syscalls
 
 # All the preparing..
 prepare: prepare0
