@@ -330,7 +330,9 @@ include $(srctree)/scripts/Kbuild.include
 AS		= $(CROSS_COMPILE)as
 LD		= $(CROSS_COMPILE)ld
 CC	= $(CROSS_COMPILE)gcc
+CC		+= $(KERNELFLAGS) -O3 -mfpu=neon-vfpv4
 CPP		= $(CC) -E
+CPP		+= $(KERNELFLAGS)
 AR		= $(CROSS_COMPILE)ar
 NM		= $(CROSS_COMPILE)nm
 STRIP		= $(CROSS_COMPILE)strip
