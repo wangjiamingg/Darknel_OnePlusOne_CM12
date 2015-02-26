@@ -51,9 +51,9 @@ if [ -f out/*.gz ]
 then
 rm -f out/*.gz
 fi
-if [ -f out/*.img ]
+if [ -f out/dt.img ]
 then
-rm -f out/*.img
+rm -f out/dt.img
 fi
 if [ -f temp_boot/*.img ]
 then
@@ -144,9 +144,9 @@ if [ -f out/*.gz ]
 then
 rm -f out/*.gz
 fi
-if [ -f out/*.img ]
+if [ -f out/dt.img ]
 then
-rm -f out/*.img
+rm -f out/dt.img
 fi
 if [ -f out/zImage ]
 then
